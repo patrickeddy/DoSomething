@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SEh-R4-G69">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Do Something-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="DoSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,215 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Calculating maximum productivity..." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRK-BO-aAJ">
+                                <rect key="frame" x="0.0" y="118" width="600" height="394"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="q0B-Cw-yog" appends="YES" id="ufh-bn-RoY"/>
+                                </connections>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Click on the text above to shuffle activities." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOk-wW-942">
+                                <rect key="frame" x="0.0" y="562" width="600" height="38"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="4Ou-dC-P2L"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="IRK-BO-aAJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="54" id="DXz-RO-Erd"/>
+                            <constraint firstItem="OOk-wW-942" firstAttribute="top" secondItem="IRK-BO-aAJ" secondAttribute="bottom" constant="50" id="gNF-RV-zh8"/>
+                            <constraint firstItem="IRK-BO-aAJ" firstAttribute="leading" secondItem="OOk-wW-942" secondAttribute="leading" id="l9H-9I-8e9"/>
+                            <constraint firstItem="IRK-BO-aAJ" firstAttribute="trailing" secondItem="OOk-wW-942" secondAttribute="trailing" id="mdn-ia-00s"/>
+                            <constraint firstItem="OOk-wW-942" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="nC7-Yd-S19"/>
+                            <constraint firstItem="OOk-wW-942" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="vTo-HK-rVm"/>
+                            <constraint firstAttribute="trailing" secondItem="OOk-wW-942" secondAttribute="trailing" id="wzt-IN-gVI"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Do Something" id="uJD-6q-acV">
+                        <barButtonItem key="rightBarButtonItem" image="ListIcon.png" id="KBN-58-djn">
+                            <connections>
+                                <action selector="addActivity:" destination="vXZ-lx-hvc" id="tST-UA-fsK"/>
+                                <segue destination="qaC-Wr-pPM" kind="show" id="C3U-D0-Ohn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="randomActivityView" destination="IRK-BO-aAJ" id="dG9-bI-4d9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="q0B-Cw-yog">
+                    <connections>
+                        <action selector="tappedOnActivity:" destination="vXZ-lx-hvc" id="hy7-WV-W6v"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="1137" y="362"/>
+        </scene>
+        <!--Activities-->
+        <scene sceneID="I2X-Pq-IAr">
+            <objects>
+                <tableViewController id="SvF-aT-dAP" customClass="ActivityTableViewController" customModule="DoSomething" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2bC-Q7-n9X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="u72-dS-dcJ">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u72-dS-dcJ" id="lUr-pK-N8w">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="SvF-aT-dAP" id="9fh-Sk-QgA"/>
+                            <outlet property="delegate" destination="SvF-aT-dAP" id="6ub-TS-nqr"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Activities" id="g4I-Bu-61G">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="2uJ-Oa-P7r">
+                            <connections>
+                                <segue destination="zdQ-b1-eOy" kind="presentation" identifier="addActivitySegue" id="lIV-s7-VqB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eQb-hW-odm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2596" y="362"/>
+        </scene>
+        <!--Add Activity-->
+        <scene sceneID="f4z-Rd-Lga">
+            <objects>
+                <viewController id="px8-VZ-D3C" customClass="AddActivityViewController" customModule="DoSomething" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oVT-XL-5zV"/>
+                        <viewControllerLayoutGuide type="bottom" id="d0R-rY-2Uh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yia-ge-5zl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Activity" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3b-wq-H9F">
+                                <rect key="frame" x="16" y="208" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="addActivity:" destination="px8-VZ-D3C" eventType="editingDidEndOnExit" id="XmL-fk-BRL"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Add an activity you'd like to do in your spare time." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFC-6L-pRL">
+                                <rect key="frame" x="16" y="72" width="568" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="YFC-6L-pRL" firstAttribute="top" secondItem="oVT-XL-5zV" secondAttribute="bottom" constant="8" symbolic="YES" id="1C7-5j-jRv"/>
+                            <constraint firstItem="YFC-6L-pRL" firstAttribute="trailing" secondItem="X3b-wq-H9F" secondAttribute="trailing" id="ByL-nx-vYs"/>
+                            <constraint firstItem="X3b-wq-H9F" firstAttribute="top" secondItem="YFC-6L-pRL" secondAttribute="bottom" constant="8" symbolic="YES" id="L7b-A3-eLg"/>
+                            <constraint firstItem="X3b-wq-H9F" firstAttribute="leading" secondItem="Yia-ge-5zl" secondAttribute="leadingMargin" id="hlW-qz-Qtf"/>
+                            <constraint firstItem="d0R-rY-2Uh" firstAttribute="top" secondItem="X3b-wq-H9F" secondAttribute="bottom" constant="362" id="jNo-qB-nHS"/>
+                            <constraint firstItem="X3b-wq-H9F" firstAttribute="leading" secondItem="YFC-6L-pRL" secondAttribute="leading" id="lDh-uO-uvx"/>
+                            <constraint firstItem="YFC-6L-pRL" firstAttribute="trailing" secondItem="Yia-ge-5zl" secondAttribute="trailingMargin" id="ug4-7C-2P9"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="B4i-9H-X7w" appends="YES" id="6Uu-no-ASr"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Activity" id="QqZ-4x-jI5">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="IT7-VS-G5D">
+                            <connections>
+                                <action selector="didPressCancelButton:" destination="px8-VZ-D3C" id="Z82-7K-J6C"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="newActivityTextField" destination="X3b-wq-H9F" id="cmr-fo-v26"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LOR-NW-yJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="B4i-9H-X7w">
+                    <connections>
+                        <action selector="didTapOutside:" destination="px8-VZ-D3C" id="t4i-Ov-fK8"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3946" y="362"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IlJ-8i-Af4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SEh-R4-G69" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2xq-Jn-JEa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="g3f-7H-3Kv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5rA-yO-U2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="442" y="355"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8fA-3B-Gk5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qaC-Wr-pPM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jl8-dV-cop">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SvF-aT-dAP" kind="relationship" relationship="rootViewController" id="KMA-qg-QlH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FlS-Pz-dqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784" y="362"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iaZ-JD-G5n">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zdQ-b1-eOy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="avi-j5-eCZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="px8-VZ-D3C" kind="relationship" relationship="rootViewController" id="roD-wq-cUW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="91v-TN-yoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3263" y="362"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ListIcon.png" width="24" height="24"/>
+    </resources>
 </document>

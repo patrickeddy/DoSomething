@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3742BF1B699630001244BB /* ListIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3742BD1B699630001244BB /* ListIcon.png */; };
+		EE3742C01B699630001244BB /* ListIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3742BE1B699630001244BB /* ListIcon@2x.png */; };
 		EE5E6D5C1B41AB650039D376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E6D5B1B41AB650039D376 /* AppDelegate.swift */; };
 		EE5E6D5F1B41AB650039D376 /* DoSomething.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE5E6D5D1B41AB650039D376 /* DoSomething.xcdatamodeld */; };
 		EE5E6D611B41AB650039D376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E6D601B41AB650039D376 /* ViewController.swift */; };
@@ -14,6 +16,8 @@
 		EE5E6D661B41AB650039D376 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5E6D651B41AB650039D376 /* Images.xcassets */; };
 		EE5E6D691B41AB650039D376 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5E6D671B41AB650039D376 /* LaunchScreen.xib */; };
 		EE5E6D751B41AB650039D376 /* DoSomethingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E6D741B41AB650039D376 /* DoSomethingTests.swift */; };
+		EE9E67941B45DE890098CFE0 /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9E67931B45DE890098CFE0 /* AddActivityViewController.swift */; };
+		EEC64F3F1B41DAA20071D99F /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC64F3E1B41DAA20071D99F /* ActivityTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE3742BD1B699630001244BB /* ListIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ListIcon.png; sourceTree = "<group>"; };
+		EE3742BE1B699630001244BB /* ListIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ListIcon@2x.png"; sourceTree = "<group>"; };
 		EE5E6D561B41AB650039D376 /* DoSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E6D5A1B41AB650039D376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE5E6D5B1B41AB650039D376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +44,8 @@
 		EE5E6D6E1B41AB650039D376 /* DoSomethingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoSomethingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E6D731B41AB650039D376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE5E6D741B41AB650039D376 /* DoSomethingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSomethingTests.swift; sourceTree = "<group>"; };
+		EE9E67931B45DE890098CFE0 /* AddActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
+		EEC64F3E1B41DAA20071D99F /* ActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE3742B81B6953C2001244BB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EE3742BD1B699630001244BB /* ListIcon.png */,
+				EE3742BE1B699630001244BB /* ListIcon@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		EE5E6D4D1B41AB650039D376 = {
 			isa = PBXGroup;
 			children = (
@@ -80,11 +97,12 @@
 			isa = PBXGroup;
 			children = (
 				EE5E6D5B1B41AB650039D376 /* AppDelegate.swift */,
-				EE5E6D601B41AB650039D376 /* ViewController.swift */,
+				EE5E6D7F1B41AD000039D376 /* ViewControllers */,
+				EE5E6D7E1B41ACFB0039D376 /* Model */,
 				EE5E6D621B41AB650039D376 /* Main.storyboard */,
 				EE5E6D651B41AB650039D376 /* Images.xcassets */,
 				EE5E6D671B41AB650039D376 /* LaunchScreen.xib */,
-				EE5E6D5D1B41AB650039D376 /* DoSomething.xcdatamodeld */,
+				EE3742B81B6953C2001244BB /* Resources */,
 				EE5E6D591B41AB650039D376 /* Supporting Files */,
 			);
 			path = DoSomething;
@@ -113,6 +131,24 @@
 				EE5E6D731B41AB650039D376 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE5E6D7E1B41ACFB0039D376 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE5E6D5D1B41AB650039D376 /* DoSomething.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EE5E6D7F1B41AD000039D376 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE5E6D601B41AB650039D376 /* ViewController.swift */,
+				EEC64F3E1B41DAA20071D99F /* ActivityTableViewController.swift */,
+				EE9E67931B45DE890098CFE0 /* AddActivityViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +200,7 @@
 				TargetAttributes = {
 					EE5E6D551B41AB650039D376 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = J825YN3Z75;
 					};
 					EE5E6D6D1B41AB650039D376 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -195,9 +232,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3742BF1B699630001244BB /* ListIcon.png in Resources */,
 				EE5E6D641B41AB650039D376 /* Main.storyboard in Resources */,
 				EE5E6D691B41AB650039D376 /* LaunchScreen.xib in Resources */,
 				EE5E6D661B41AB650039D376 /* Images.xcassets in Resources */,
+				EE3742C01B699630001244BB /* ListIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +254,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEC64F3F1B41DAA20071D99F /* ActivityTableViewController.swift in Sources */,
 				EE5E6D611B41AB650039D376 /* ViewController.swift in Sources */,
 				EE5E6D5C1B41AB650039D376 /* AppDelegate.swift in Sources */,
+				EE9E67941B45DE890098CFE0 /* AddActivityViewController.swift in Sources */,
 				EE5E6D5F1B41AB650039D376 /* DoSomething.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,9 +385,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DoSomething/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -354,9 +398,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DoSomething/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -413,6 +460,7 @@
 				EE5E6D7A1B41AB650039D376 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE5E6D7B1B41AB650039D376 /* Build configuration list for PBXNativeTarget "DoSomethingTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +469,7 @@
 				EE5E6D7D1B41AB650039D376 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
