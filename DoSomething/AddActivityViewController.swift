@@ -9,12 +9,15 @@
 import UIKit
 import CoreData
 
-class AddActivityViewController: UIViewController {
+class AddActivityViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+    // Properties
     @IBOutlet var newActivityTextField: UITextField!
+    @IBOutlet var activityImageView: UIImageView!
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
     var activities = [NSManagedObject]()
+    var picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,14 +64,52 @@ class AddActivityViewController: UIViewController {
             var alertController = UIAlertController(title: "Missing Activity", message: "Sorry, you must enter an activity in the text field to add one.", preferredStyle: .Alert)
             let alertCancelAction = UIAlertAction(title: "Ok", style: .Default, handler:nil)
             alertController.addAction(alertCancelAction)
-            self.presentViewController(alertController, animated: true, completion: {})
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     @IBAction func didPressCancelButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {})
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
-    @IBAction func didTapOutside(sender: AnyObject) {
+    @IBAction func dismissKeyboard(sender: AnyObject){
         newActivityTextField.resignFirstResponder()
+    }
+    @IBAction func didTapAddImageButton(sender: AnyObject) {
+        // Do some setup to the picker
+        picker = UIImagePickerController()
+        picker.delegate = self
+        picker.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+        picker.sourceType = UIImagePickerControllerSourceType.Camera
+        picker.allowsEditing = false
+        
+        // Check to see if this device has a camera
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
+            presentViewController(picker, animated: true, completion: nil)
+        }else{
+            println("Device does not have camera. Sorry")
+        }
+        
+    }
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+
+        // Dismiss picker controller
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        
+        // Logging... Function was called therefore we're going to spit out URLs
+        println("Picture taken. didFinishPickingMediaWithInfo called.")
+        
+        println("Info count: \(info.count)")
+        print("\(info)")
+        
+        // Next step... Get the UIImagePickerControllerOriginalImage and set it as preview.
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            activityImageView.image = image
+        } else {
+            println("Could not set the activityImageView's image")
+        }
+        
+    }
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: {})
     }
 //    /*
 //    // MARK: - Navigation

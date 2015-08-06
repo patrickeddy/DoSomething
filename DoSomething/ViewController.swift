@@ -30,12 +30,16 @@ class ViewController: UIViewController {
     }
     func displayActivity(){
         // Randomly select an activity and display it
+        if (activities.count > 0){
         let randNumber = abs(random() % (activities.count))
-        let activity = activities[randNumber]
-        randomActivityView.text = activity.valueForKey("body") as! String
-        randomActivityView.textColor = UIColor.whiteColor()
-        randomActivityView.textAlignment = NSTextAlignment.Center
-        randomActivityView.font = UIFont(name: "Helvetica-Bold", size: 30.0)
+            let activity = activities[randNumber]
+            randomActivityView.text = activity.valueForKey("body") as! String
+            randomActivityView.textColor = UIColor.whiteColor()
+            randomActivityView.textAlignment = NSTextAlignment.Center
+            randomActivityView.font = UIFont(name: "Helvetica-Bold", size: 30.0)
+        } else {
+            println("Can't display an activity because there aren't any!")
+        }
     }
     
     func fetchActivities (){

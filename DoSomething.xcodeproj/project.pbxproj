@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EE3742BF1B699630001244BB /* ListIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3742BD1B699630001244BB /* ListIcon.png */; };
 		EE3742C01B699630001244BB /* ListIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3742BE1B699630001244BB /* ListIcon@2x.png */; };
+		EE3742C21B72B9B0001244BB /* cameraIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3742C11B72B9B0001244BB /* cameraIcon@2x.png */; };
+		EE3742C41B72B9E5001244BB /* cameraIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3742C31B72B9E5001244BB /* cameraIcon.png */; };
 		EE5E6D5C1B41AB650039D376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E6D5B1B41AB650039D376 /* AppDelegate.swift */; };
 		EE5E6D5F1B41AB650039D376 /* DoSomething.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE5E6D5D1B41AB650039D376 /* DoSomething.xcdatamodeld */; };
 		EE5E6D611B41AB650039D376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E6D601B41AB650039D376 /* ViewController.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		EE3742BD1B699630001244BB /* ListIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ListIcon.png; sourceTree = "<group>"; };
 		EE3742BE1B699630001244BB /* ListIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ListIcon@2x.png"; sourceTree = "<group>"; };
+		EE3742C11B72B9B0001244BB /* cameraIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraIcon@2x.png"; sourceTree = "<group>"; };
+		EE3742C31B72B9E5001244BB /* cameraIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraIcon.png; sourceTree = "<group>"; };
 		EE5E6D561B41AB650039D376 /* DoSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5E6D5A1B41AB650039D376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE5E6D5B1B41AB650039D376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 			children = (
 				EE3742BD1B699630001244BB /* ListIcon.png */,
 				EE3742BE1B699630001244BB /* ListIcon@2x.png */,
+				EE3742C31B72B9E5001244BB /* cameraIcon.png */,
+				EE3742C11B72B9B0001244BB /* cameraIcon@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -232,7 +238,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3742C21B72B9B0001244BB /* cameraIcon@2x.png in Resources */,
 				EE3742BF1B699630001244BB /* ListIcon.png in Resources */,
+				EE3742C41B72B9E5001244BB /* cameraIcon.png in Resources */,
 				EE5E6D641B41AB650039D376 /* Main.storyboard in Resources */,
 				EE5E6D691B41AB650039D376 /* LaunchScreen.xib in Resources */,
 				EE5E6D661B41AB650039D376 /* Images.xcassets in Resources */,
