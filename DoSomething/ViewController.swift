@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import QuartzCore
 
 class ViewController: UIViewController {
     
@@ -20,6 +21,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Add some sexy dropshadow to the randomActivityView UITextView
+        randomActivityView.layer.shadowOpacity = 0.8
+        randomActivityView.layer.shadowColor = UIColor.blackColor().CGColor
+        randomActivityView.layer.shadowOffset = CGSize(width: 0.0, height: -1.0)
     }
     override func viewWillAppear(animated: Bool) {
         fetchActivities()

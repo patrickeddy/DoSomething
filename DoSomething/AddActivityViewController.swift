@@ -57,7 +57,7 @@ class AddActivityViewController: UIViewController, UIImagePickerControllerDelega
             if !managedObjectContext.save(&error){
                 println("Unable to save new activity. Error: \(error)")
             } else{
-                println("Activity saved! -> \(activityBody)")
+                println("Activity saved: \(activity)")
             }
             
             self.dismissViewControllerAnimated(true, completion: {})
@@ -113,7 +113,7 @@ class AddActivityViewController: UIViewController, UIImagePickerControllerDelega
             
             let documentsPath:String = paths[0] as! String
             let filePath = documentsPath.stringByAppendingPathComponent("\(image!.hashValue).png")
-            println("Filepath:\n\(filePath)")
+            println("Filepath: \(filePath)")
             
             pngData.writeToFile(filePath, atomically: true)
             
