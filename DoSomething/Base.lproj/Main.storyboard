@@ -22,7 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Calculating maximum productivity..." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRK-BO-aAJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KRe-Kv-1zX">
+                                <rect key="frame" x="0.0" y="64" width="608" height="536"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="No activities" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRK-BO-aAJ">
                                 <rect key="frame" x="0.0" y="118" width="600" height="394"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -33,11 +36,11 @@
                                     <outletCollection property="gestureRecognizers" destination="q0B-Cw-yog" appends="YES" id="ufh-bn-RoY"/>
                                 </connections>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Click on the text above to shuffle activities." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOk-wW-942">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Click to shuffle activities" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOk-wW-942">
                                 <rect key="frame" x="0.0" y="562" width="600" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="4Ou-dC-P2L"/>
+                                    <constraint firstAttribute="height" constant="38" id="wAe-Jf-sju"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -46,13 +49,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="IRK-BO-aAJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="54" id="DXz-RO-Erd"/>
-                            <constraint firstItem="OOk-wW-942" firstAttribute="top" secondItem="IRK-BO-aAJ" secondAttribute="bottom" constant="50" id="gNF-RV-zh8"/>
-                            <constraint firstItem="IRK-BO-aAJ" firstAttribute="leading" secondItem="OOk-wW-942" secondAttribute="leading" id="l9H-9I-8e9"/>
-                            <constraint firstItem="IRK-BO-aAJ" firstAttribute="trailing" secondItem="OOk-wW-942" secondAttribute="trailing" id="mdn-ia-00s"/>
-                            <constraint firstItem="OOk-wW-942" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="nC7-Yd-S19"/>
-                            <constraint firstItem="OOk-wW-942" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="vTo-HK-rVm"/>
-                            <constraint firstAttribute="trailing" secondItem="OOk-wW-942" secondAttribute="trailing" id="wzt-IN-gVI"/>
+                            <constraint firstItem="KRe-Kv-1zX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="40N-Fs-jUd"/>
+                            <constraint firstItem="IRK-BO-aAJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="54" id="CJV-g6-VRm"/>
+                            <constraint firstItem="IRK-BO-aAJ" firstAttribute="leading" secondItem="OOk-wW-942" secondAttribute="leading" id="Ofa-lk-cjJ"/>
+                            <constraint firstItem="IRK-BO-aAJ" firstAttribute="trailing" secondItem="OOk-wW-942" secondAttribute="trailing" id="Rnc-32-sSu"/>
+                            <constraint firstItem="OOk-wW-942" firstAttribute="top" secondItem="IRK-BO-aAJ" secondAttribute="bottom" constant="50" id="Vhw-ED-IkN"/>
+                            <constraint firstItem="OOk-wW-942" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="c0v-lN-fhJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KRe-Kv-1zX" secondAttribute="trailing" constant="-24" id="fHE-ef-ujq"/>
+                            <constraint firstItem="KRe-Kv-1zX" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="hA2-m6-MSW"/>
+                            <constraint firstItem="KRe-Kv-1zX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="vhI-p0-5iq"/>
+                            <constraint firstItem="OOk-wW-942" firstAttribute="leading" secondItem="KRe-Kv-1zX" secondAttribute="leading" id="yRm-kx-VUc"/>
+                            <constraint firstAttribute="trailing" secondItem="OOk-wW-942" secondAttribute="trailing" id="zAF-SR-mv2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Do Something" id="uJD-6q-acV">
@@ -64,6 +71,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityImageView" destination="KRe-Kv-1zX" id="bO8-Ya-Az8"/>
                         <outlet property="randomActivityView" destination="IRK-BO-aAJ" id="dG9-bI-4d9"/>
                     </connections>
                 </viewController>

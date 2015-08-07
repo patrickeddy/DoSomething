@@ -14,6 +14,7 @@ class AddActivityViewController: UIViewController, UIImagePickerControllerDelega
     // Properties
     @IBOutlet var newActivityTextField: UITextField!
     @IBOutlet var activityImageView: UIImageView!
+    var activityImageFilePath:String = ""
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
     var activities = [NSManagedObject]()
@@ -49,6 +50,7 @@ class AddActivityViewController: UIViewController, UIImagePickerControllerDelega
             let entityDescription = NSEntityDescription.entityForName("Activity", inManagedObjectContext: managedObjectContext)
             var activity = NSManagedObject(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
             activity.setValue(activityBody, forKey: "body")
+            activity.setValue(activityImageFilePath, forKey: "imagePath")
             activities.append(activity)
             
             var error:NSError?
@@ -94,18 +96,36 @@ class AddActivityViewController: UIViewController, UIImagePickerControllerDelega
         // Dismiss picker controller
         picker.dismissViewControllerAnimated(true, completion: nil)
         
-        // Logging... Function was called therefore we're going to spit out URLs
-        println("Picture taken. didFinishPickingMediaWithInfo called.")
+        // Unnecessary logging goes here... For fun.
+//        println("Picture taken. didFinishPickingMediaWithInfo called.")
+//        
+//        println("Info count: \(info.count)")
+//        print("\(info)")
         
-        println("Info count: \(info.count)")
-        print("\(info)")
-        
-        // Next step... Get the UIImagePickerControllerOriginalImage and set it as preview.
-        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+        // Get the UIImagePickerControllerOriginalImage and set it as preview.
+        let image = info["UIImagePickerControllerOriginalImage"] as? UIImage
+        if image != nil {
             activityImageView.image = image
-        } else {
+
+            // Save the damn thing.
+            let pngData = UIImageJPEGRepresentation(image, 0.8)
+            var paths:[AnyObject] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+            
+            let documentsPath:String = paths[0] as! String
+            let filePath = documentsPath.stringByAppendingPathComponent("\(image!.hashValue).png")
+            println("Filepath:\n\(filePath)")
+            
+            pngData.writeToFile(filePath, atomically: true)
+            
+            // Set the controllers activityImageFilePath to the current images saved filepath
+            activityImageFilePath = "\(image!.hashValue).png"
+
+        
+        } // Oops, no image. What happened?
+        else {
             println("Could not set the activityImageView's image")
         }
+        
         
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

@@ -12,6 +12,7 @@ import CoreData
 class ViewController: UIViewController {
     
     @IBOutlet var randomActivityView: UITextView!
+    @IBOutlet var activityImageView: UIImageView!
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
     
@@ -23,7 +24,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         fetchActivities()
         displayActivity()
-        println("viewWillAppear: Displaying activity...")
     }
     @IBAction func tappedOnActivity(sender: AnyObject) {
         displayActivity()
@@ -33,12 +33,32 @@ class ViewController: UIViewController {
         if (activities.count > 0){
         let randNumber = abs(random() % (activities.count))
             let activity = activities[randNumber]
+            // Adding the activities text
             randomActivityView.text = activity.valueForKey("body") as! String
             randomActivityView.textColor = UIColor.whiteColor()
             randomActivityView.textAlignment = NSTextAlignment.Center
             randomActivityView.font = UIFont(name: "Helvetica-Bold", size: 30.0)
+            
+            // Adding the picture
+            let imagePath = activity.valueForKey("imagePath") as! String
+            var paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+            // Use NSSearchPathsForDirectoriesInDomain func and then build the path again
+            let fullPath = paths[0].stringByAppendingPathComponent(imagePath)
+            
+            if fullPath != ""{
+                if NSFileManager.defaultManager().fileExistsAtPath(fullPath){
+                    let image = UIImage(contentsOfFile: fullPath)
+                    activityImageView.image = image
+                }else{
+                    println("No file exists at path: \(fullPath). Can't set to activityImageView")
+                }
+            } else {
+                println("Error. Activities imagePath is nil.")
+            }
+            
         } else {
             println("Can't display an activity because there aren't any!")
+            clearViews()
         }
     }
     
@@ -51,6 +71,13 @@ class ViewController: UIViewController {
         } else {
             println("Couldn't fetch activities... Error: \(error)")
         }
+    }
+    func clearViews(){
+        randomActivityView.text = "No activities..."
+        randomActivityView.textColor = UIColor.whiteColor()
+        randomActivityView.textAlignment = NSTextAlignment.Center
+        randomActivityView.font = UIFont(name: "Helvetica-Bold", size: 30.0)
+        activityImageView.image = nil
     }
 
     override func didReceiveMemoryWarning() {
